@@ -1,0 +1,134 @@
+@import "mixins";
+.login_container {
+  width: 100%;
+  height: 100vh;
+  @include desktopMax() {
+    width: 100%;
+    max-width: $maxWidth;
+    margin-left: calc(50% - #{$maxWidth/2});
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include tablet {
+    // padding: 10px 0px;
+  }
+  @include mobile {
+    background-color: white;
+    align-items: flex-start;
+  }
+
+  .wrapper {
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    @include tablet {
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+    .firstPart {
+      display: flex;
+      justify-content: stretch;
+      align-items: stretch;
+      flex-direction: column;
+      .logos {
+        flex: 1;
+
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px;
+        background-color: $naranja;
+        img {
+          max-width: 200px;
+          &.familia {
+            max-width: 150px;
+            margin-bottom: 5px;
+          }
+        }
+
+        @include tablet {
+          height: 100%;
+        }
+      }
+      .gradient {
+        @include mobile {
+          width: 100%;
+          height: 20px;
+          background-color: $naranja;
+          margin-bottom: 30px;
+        }
+      }
+      svg {
+        max-height: 100px;
+        //   @include mobile {
+        //     width: 100%;
+        //   }
+      }
+    }
+
+    .formulario {
+      width: 100%;
+      max-width: 100%;
+      padding: 0px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .MuiFormControl-root {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .MuiFormLabel-root.Mui-focused {
+        color: $naranja !important;
+      }
+      .MuiInput-underline:after {
+        border-bottom: 2px solid $naranja;
+      }
+      .remember {
+        text-align: right;
+        padding: 5px 0px 10px;
+        a {
+          color: $naranja;
+        }
+      }
+      .action {
+        padding: 10px 0px;
+        text-align: center;
+        button {
+          background-color: $naranja;
+          color: white;
+          width: 100%;
+          max-width: 200px;
+          border-radius: 20px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+          -o-border-radius: 20px;
+          &.Mui-disabled {
+            color: rgba(0, 0, 0, 0.26);
+            box-shadow: none;
+            background-color: rgba(0, 0, 0, 0.12);
+          }
+        }
+      }
+    }
+  }
+}

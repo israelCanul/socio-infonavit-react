@@ -1,0 +1,44 @@
+$desktop: 1200px; //tamano maximo para escritorio
+$tablet: 500px; //tamano minimo para tablet
+$maxWidth: 1500px;
+
+$naranja: #ec5056;
+$gris: #9f9f9f;
+
+$mediumPadding: 5px;
+$padding: 10px;
+
+//units
+$speedTransition: 0.3s;
+$menuAsideWidth: 300px;
+
+@mixin desktopMax {
+  @media only screen and (min-width: #{$maxWidth}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media only screen and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

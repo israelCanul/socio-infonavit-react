@@ -1,0 +1,44 @@
+body {
+  box-sizing: border-box !important;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.App-header {
+  background-color: #ec5056;
+}
+.App-header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 5px;
+  height: 50px;
+}
+.App-header nav a {
+  position: absolute;
+  left: 5px;
+  font-size: 35px;
+  color: white;
+}
+.App-header nav img {
+  max-height: 35px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .App-header nav a {
+    position: absolute;
+    left: 5px;
+    font-size: 40px;
+  }
+  .App-header nav img {
+    max-height: 100%;
+  }
+}
