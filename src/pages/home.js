@@ -10,7 +10,7 @@ const Home = function ({ userInfo, headerInfo }) {
   if (benevits !== null && wallets !== null) {
     benevits.unlocked.map((benevit) => {
       const existsInWallet = wallets.find(
-        (wallet) => wallet.id == benevit.wallet.id
+        (wallet) => wallet.id === benevit.wallet.id
       );
       if (walletsArray[existsInWallet.id])
         walletsArray[existsInWallet.id].push({ ...benevit, unlocked: true });
@@ -18,7 +18,7 @@ const Home = function ({ userInfo, headerInfo }) {
     });
     benevits.locked.map((benevit) => {
       const existsInWallet = wallets.find(
-        (wallet) => wallet.id == benevit.wallet.id
+        (wallet) => wallet.id === benevit.wallet.id
       );
       if (walletsArray[existsInWallet.id])
         walletsArray[existsInWallet.id].push({ ...benevit, unlocked: false });
@@ -26,7 +26,9 @@ const Home = function ({ userInfo, headerInfo }) {
     });
 
     var renderBenevits = Object.keys(walletsArray).map((walletId) => {
-      var wallet = wallets.find((wallet) => wallet.id == walletId);
+      var wallet = wallets.find(
+        (wallet) => parseInt(wallet.id) === parseInt(walletId)
+      );
       var walletItems = walletsArray[walletId];
       return (
         <Sections

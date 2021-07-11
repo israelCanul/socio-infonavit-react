@@ -14,12 +14,12 @@ import { useState } from "react";
 function App() {
   //datos del usuario
   const [loged, setLoged] = useState(
-    getCookie("dataLogin") != "" ? getStorageItem("dataLogin") : ""
+    getCookie("dataLogin") !== "" ? getStorageItem("dataLogin") : ""
   );
   //datos del header como resultado del login
   const [infoLogged, setInfoLogged] = useState(getStorageItem("headerLogin"));
   const preventNoLogin = () => {
-    if (loged == "") {
+    if (loged === "") {
       return (
         <Route>
           <Redirect
