@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { getWallets, getBenevits } from "../api";
-export function useWallet(wallet) {
+export function useWallet(wallet, headers) {
   const [wallets, setwallets] = useState(null);
   useEffect(() => {
     let cancel = false;
     if (wallets == null) {
-      getWallets().then((res) => {
+      getWallets(headers).then((res) => {
         if (cancel) return;
         setwallets(res.data);
       });

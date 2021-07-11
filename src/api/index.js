@@ -24,8 +24,10 @@ export const tryLogin = (email, pass) => {
       }
     });
 };
-export const getWallets = () => {
-  return axios.get(apiUrl + "/member/wallets");
+export const getWallets = (headersInfo) => {
+  return axios.get(apiUrl + "/member/wallets", {
+    headers: headersInfo,
+  });
 };
 
 export const getBenevits = (headersInfo) => {

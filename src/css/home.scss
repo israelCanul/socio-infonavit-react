@@ -1,0 +1,115 @@
+@import "mixins";
+.Items.wallet {
+  .title {
+    position: relative;
+    // background-color: #f5f7fb;
+    padding: 10px 10px 5px;
+    p {
+      //   background-color: white;
+      height: auto;
+      width: auto;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      margin: 0px;
+      color: Black;
+      font-weight: 500;
+      padding: 5px 10px;
+    }
+  }
+  .container {
+    // background: #f5f7fb;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    @include mobile {
+      justify-content: flex-start;
+    }
+    .wrapper {
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .item {
+      width: 200px;
+      overflow: hidden;
+      height: 250px;
+      background: white;
+      margin: 10px 10px;
+      border-radius: 10px;
+
+      @include mobile {
+        width: 300px;
+        height: 320px;
+      }
+      &.locked {
+        display: flex;
+        flex-direction: column;
+        .logo {
+          flex: 1;
+          text-align: center;
+          background-color: $gris;
+          padding: 3px 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          img {
+            height: 50px;
+            width: auto;
+          }
+          p {
+            margin: 5px 0px 0px;
+            color: black;
+          }
+        }
+        .action {
+          padding: 10px 0px;
+          text-align: center;
+          button {
+            color: white;
+            background-color: $naranja;
+          }
+        }
+      }
+      &.unlocked {
+        display: flex;
+        flex-direction: column;
+        .logo {
+          text-align: center;
+          background-color: $gris;
+          padding: 3px 0px;
+          img {
+            height: 50px;
+            width: auto;
+          }
+        }
+        p {
+          color: black;
+          font-size: 14px;
+          padding: 5px;
+          margin: 0px 0px 0px;
+          &.desc {
+            flex: 1;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 100;
+            font-size: 14px;
+          }
+          &.valido {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
