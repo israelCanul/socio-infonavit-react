@@ -34,3 +34,24 @@ export function useBenevits(wallet, headers) {
   });
   return benevits;
 }
+
+export function useWalletsBenevit(headers) {
+  //intentando evitar que se llame dos veces alguno de los dos endpoints
+  const [values, setvalues] = useState(null);
+  useEffect(() => {
+    let cancel = false;
+    if (values == null) {
+      getWallets(headers).then((res) => {
+        if (cancel) return;
+        getBenevits(headers).then((res2) => {
+          if (cancel) return;
+          setvalues({ wallets: res.data, benevits: res2.data });
+        });
+      });
+      return () => {
+        cancel = true;
+      };
+    }
+  });
+  return values;
+}

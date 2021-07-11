@@ -11,9 +11,9 @@ import { useHistory } from "react-router-dom";
 const Login = ({ setLog, addInfoLogin }) => {
   let history = useHistory();
 
-  const [email, setEmail] = useState("prueba@nextia.mx");
+  const [email, setEmail] = useState("");
   const [emailV, setEmailV] = useState(false);
-  const [pass, setPass] = useState("PruebaNextia2021");
+  const [pass, setPass] = useState("");
   const [error, setError] = useState("");
   const [loading, setloading] = useState(false);
   const emailRef = createRef();

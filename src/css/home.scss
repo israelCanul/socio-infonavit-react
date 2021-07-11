@@ -4,6 +4,9 @@
     position: relative;
     // background-color: #f5f7fb;
     padding: 10px 10px 5px;
+    .MuiChip-root {
+      font-size: 16px;
+    }
     p {
       //   background-color: white;
       height: auto;
@@ -14,7 +17,7 @@
       -ms-border-radius: 5px;
       -o-border-radius: 5px;
       margin: 0px;
-      color: Black;
+      color: white;
       font-weight: 500;
       padding: 5px 10px;
     }
@@ -24,17 +27,25 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
-    overflow-x: scroll;
+
     flex-wrap: wrap;
     @include mobile {
       justify-content: flex-start;
+      overflow: hidden;
+      overflow-x: scroll;
     }
     .wrapper {
-      width: auto;
+      width: 100%;
       height: auto;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      @include mobile {
+        width: auto !important;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
     }
 
     .item {

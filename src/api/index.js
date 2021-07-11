@@ -1,6 +1,11 @@
 import axios from "axios";
 import { apiUrl } from "../helpers/config";
-import { setStorageItem } from "../helpers/index";
+import {
+  setStorageItem,
+  getStorageItem,
+  setCookie,
+  removeStorageItem,
+} from "../helpers/index";
 
 export const tryLogin = (email, pass) => {
   return axios
@@ -34,4 +39,25 @@ export const getBenevits = (headersInfo) => {
   return axios.get(apiUrl + "/member/landing_benevits", {
     headers: headersInfo,
   });
+};
+
+export const tryLogout = () => {
+  return axios
+    .delete(apiUrl + "/logout", { headers: getStorageItem("headerLogin") })
+    .then(function (response) {
+      removeStorageItem("dataLogin", null);
+      removeStorageItem("headerLogin", null);
+      setCookie("dataLogin", "", -2);
+      return { error: 0, data: null };
+    })
+    .catch(function (error) {
+      removeStorageItem("dataLogin", null);
+      removeStorageItem("headerLogin", null);
+      setCookie("dataLogin", "", -2);
+      if (error.response.data) {
+        return { error: 0, data: null };
+      } else {
+        return { error: 0, data: null };
+      }
+    });
 };

@@ -1,0 +1,92 @@
+@import "mixins";
+.aside {
+  position: fixed;
+  width: 100vw;
+  z-index: 13;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  background-color: transparent;
+  visibility: hidden;
+  .background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    animation: pulse $speedTransition 1;
+    -webkit-animation: pulse $speedTransition 1;
+  }
+  .container {
+    z-index: 2;
+    width: $widthMenuAside;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: #{-$menuAsideWidth};
+    background-color: $naranja;
+    display: flex;
+    flex-direction: column;
+    transition: all $speedTransition ease-in-out;
+    -webkit-transition: all $speedTransition ease-in-out;
+    -moz-transition: all $speedTransition ease-in-out;
+    -ms-transition: all $speedTransition ease-in-out;
+    -o-transition: all $speedTransition ease-in-out;
+
+    .header {
+      padding: 5px 15px 5px 10px;
+      height: auto;
+      width: 100%;
+      position: relative;
+      img {
+        max-width: 100%;
+      }
+    }
+    .content {
+      flex: 1;
+    }
+    .footer {
+      padding: 10px 10px;
+      height: auto;
+      @include mobile {
+        height: 100px;
+      }
+      a {
+        font-size: 15px;
+        color: white;
+        font-style: none;
+        text-decoration: none;
+        text-align: right;
+      }
+    }
+  }
+}
+body {
+  &.aside_closing {
+    .aside {
+      visibility: visible;
+    }
+  }
+  &.aside_open {
+    .aside {
+      visibility: visible;
+    }
+    .container {
+      left: 0px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

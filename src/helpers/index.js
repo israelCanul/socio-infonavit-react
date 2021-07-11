@@ -41,6 +41,13 @@ export const getStorageItem = (name) => {
   }
   return Item;
 };
+export const removeStorageItem = (name) => {
+  try {
+    localStorage.removeItem(name);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export function validateEmail(email) {
   const re =

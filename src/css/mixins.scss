@@ -12,6 +12,8 @@ $padding: 10px;
 $speedTransition: 0.3s;
 $menuAsideWidth: 300px;
 
+$widthMenuAside: 300px;
+
 @mixin desktopMax {
   @media only screen and (min-width: #{$maxWidth}) {
     @content;

@@ -39,6 +39,7 @@ code {
   align-items: center;
   color: black;
   font-weight: bold;
+  padding: 10px 5px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -49,6 +50,30 @@ code {
   }
   p {
     margin: 5px;
+    font-weight: normal;
+    margin-bottom: 10px;
   }
-  border-width: 0px !important;
+  button.confirmar {
+    margin-right: 10px;
+    color: $naranja;
+  }
+  .MuiButton-root {
+    padding: 5px;
+  }
+}
+
+.NotFound {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: black;
+    font-family: "Roboto";
+    span {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
 }
